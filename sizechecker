@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#Folder/File to check.
+FOLDERPATH=/home/torak/Public; 
+FOLDERSIZE=$(stat -c%s "$FOLDERPATH");
+
+CD=734003200; #700MB in bytes
+DVD=5046586572; #4.7GB in bytes
+
+if [ $FOLDERSIZE -lt $CD ]
+  then
+    echo "Folder size is less than a CD size.";
+elif [ $FOLDERSIZE -gt $CD ] && [ $FOLDERSIZE -lt $DVD ]
+  then
+    echo "Folder size is greater than a CD size but less than a DVD.";
+else
+    echo "Folder size is greater than a DVD.";
+fi
